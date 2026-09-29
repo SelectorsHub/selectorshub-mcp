@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Demo Shop | Products</title></head>
+<body>
+  <div id="root">
+    <header class="css-1q2w3e4 e1abc0">
+      <input class="MuiInputBase-input css-mnn31" id=":r3:" placeholder="Search products" aria-label="Search">
+      <button id="mui-4821" class="MuiButton-root css-19bb58m" type="button">Search</button>
+    </header>
+
+    <section class="products" _ngcontent-ng-c123="">
+      <div class="card" _ngcontent-ng-c123=""><h3>Backpack</h3><span class="price">$29.99</span><button class="btn_inventory" _ngcontent-ng-c123="">Add to cart</button></div>
+      <div class="card" _ngcontent-ng-c123=""><h3>Bike Light</h3><span class="price">$9.99</span><button class="btn_inventory" _ngcontent-ng-c123="">Add to cart</button></div>
+      <div class="card" _ngcontent-ng-c123=""><h3>Bolt T-Shirt</h3><span class="price">$15.99</span><button class="btn_inventory" _ngcontent-ng-c123="">Add to cart</button></div>
+      <div class="card" _ngcontent-ng-c123=""><h3>Fleece Jacket</h3><span class="price">$49.99</span><button class="btn_inventory" _ngcontent-ng-c123="">Add to cart</button></div>
+      <div class="card" _ngcontent-ng-c123=""><h3>Onesie</h3><span class="price">$7.99</span><button class="btn_inventory" _ngcontent-ng-c123="">Add to cart</button></div>
+      <div class="card" _ngcontent-ng-c123=""><h3>Red T-Shirt</h3><span class="price">$15.99</span><button class="btn_inventory" _ngcontent-ng-c123="">Add to cart</button></div>
+    </section>
+
+    <closed-widget></closed-widget>
+
+    <iframe id="outer-frame" srcdoc='<html><body><p>Outer</p><iframe id="inner-frame" srcdoc="<html><body><button id=deep-btn>Deep action</button></body></html>"></iframe></body></html>'></iframe>
+
+    <table id="orders"><thead><tr><th>Order</th><th>Status</th><th></th></tr></thead><tbody></tbody></table>
+  </div>
+  <script>
+    customElements.define("closed-widget", class extends HTMLElement {
+      constructor() { super(); this.attachShadow({ mode: "closed" }).innerHTML = "<button>Secret</button>"; }
+    });
+    const tb = document.querySelector("#orders tbody");
+    for (let i = 1; i <= 300; i++) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>ORD-${1000 + i}</td><td>${i % 3 ? "Shipped" : "Pending"}</td><td><a href="#o${i}">View</a></td>`;
+      tb.appendChild(tr);
+    }
+  </script>
+</body>
+</html>

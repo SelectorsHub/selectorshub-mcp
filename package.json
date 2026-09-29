@@ -1,0 +1,55 @@
+{
+  "name": "selectorshub-mcp",
+  "version": "1.0.1",
+  "description": "SelectorsHub for AI agents: verified XPath, CSS, Playwright, Selenium, Cypress and WebdriverIO locators from the SelectorsHub engine, including shadow DOM, iframes and SVG.",
+  "type": "module",
+  "bin": {
+    "selectorshub-mcp": "bin/selectorshub-mcp.js"
+  },
+  "main": "src/index.js",
+  "files": [
+    "bin/",
+    "src/",
+    "engine/",
+    "scripts/postinstall.js",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js",
+    "start": "node bin/selectorshub-mcp.js",
+    "test": "node test/e2e.mjs",
+    "engine:update": "node scripts/update-engine.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "selectorshub",
+    "xpath",
+    "css-selector",
+    "locators",
+    "playwright",
+    "selenium",
+    "cypress",
+    "webdriverio",
+    "test-automation",
+    "shadow-dom",
+    "ai-agents"
+  ],
+  "author": "Sanjay Kumar <selectorshub@gmail.com> (https://selectorshub.com)",
+  "homepage": "https://selectorshub.com",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "mcpName": "com.selectorshub/selectorshub-mcp",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.1",
+    "playwright-core": "^1.63.0",
+    "zod": "^4.6.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/selectorshub/selectorshub-mcp.git"
+  }
+}

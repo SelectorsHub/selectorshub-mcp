@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>SHub MCP Test App</title></head>
+<body>
+  <header>
+    <nav>
+      <a href="/home" class="nav-link">Home</a>
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="/docs" class="nav-link active">Documentation</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Sign in to your account</h1>
+    <form id="login-form" class="auth-form">
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com">
+
+      <label for="pwd-38291">Password</label>
+      <input id="pwd-38291" name="password" type="password" class="form-control input-lg">
+
+      <label><input type="checkbox" name="remember"> Remember me</label>
+
+      <select name="country" aria-label="Country">
+        <option value="in">India</option>
+        <option value="us">United States</option>
+      </select>
+
+      <button type="submit" class="btn btn-primary" data-testid="login-submit">Sign in</button>
+      <button type="button" class="btn btn-link">Forgot password?</button>
+    </form>
+
+    <table class="users">
+      <thead><tr><th>Name</th><th>Role</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Asha</td><td>Tester</td><td><button class="btn">Edit</button></td></tr>
+        <tr><td>Ravi</td><td>Developer</td><td><button class="btn">Edit</button></td></tr>
+      </tbody>
+    </table>
+
+    <div class="toolbar">
+      <span role="button" aria-label="Settings" class="icon-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"></circle></svg>
+      </span>
+    </div>
+
+    <user-card id="profile-card"></user-card>
+
+    <iframe id="payment-frame" name="payment" srcdoc='
+      <html><body>
+        <h2>Payment</h2>
+        <input id="card-number" name="cardNumber" placeholder="Card number">
+        <button id="pay-btn">Pay now</button>
+      </body></html>'></iframe>
+    <iframe id="chat-frame" title="Support chat" src="http://127.0.0.1:__XPORT__/widget.html"></iframe>
+  </main>
+
+  <script>
+    class UserCard extends HTMLElement {
+      constructor() {
+        super();
+        const root = this.attachShadow({ mode: "open" });
+        root.innerHTML = `
+          <div class="card">
+            <span class="name">Sanjay</span>
+            <inner-actions></inner-actions>
+            <button class="follow-btn" id="follow">Follow</button>
+          </div>`;
+      }
+    }
+    class InnerActions extends HTMLElement {
+      constructor() {
+        super();
+        const root = this.attachShadow({ mode: "open" });
+        root.innerHTML = `<button class="msg-btn" title="Send message">Message</button>`;
+      }
+    }
+    customElements.define("user-card", UserCard);
+    customElements.define("inner-actions", InnerActions);
+  </script>
+</body>
+</html>
